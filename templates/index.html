@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+    <h1>Welcome to the Home Page</h1>
+    <h2>All Posts:</h2>
+{% for post in posts %}
+    <li>
+        <h3>{{ post.title }}</h3>
+        <p>{{ post.content }}</p>
+        <p>Posted on: {{ post.date_posted }}/ Posted by {{ post.author.username }}</p>
+        <button type="submit" class="btn btn-outline-info"><a href="{{url_for('post', post_id=post.id)}}">Post</a>{{ post.id }}</button>
+    </li>
+{% endfor %}
+
+{% endblock %}
